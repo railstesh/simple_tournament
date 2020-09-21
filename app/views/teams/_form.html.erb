@@ -24,5 +24,5 @@
       <%= player_form.select(:user_id, User.pluck([:email, :id]), {}, {class: "form-control"}) %>
     </div>
   <% end %>
-  <%= f.submit 'Create', class: 'btn btn-primary' %>
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
 <%end%>

@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default devise-bs main-block">
+  <div class="panel-heading text-center">
+    <h4>Team</h4>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @team.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
+    <p>
+      <strong>Tournament:</strong>
+      <%= @team.tournament.name %>
+    </p>
 
-<p>
-  <strong>Tournament:</strong>
-  <%= @team.tournament %>
-</p>
+    <p>
+      <strong>Players:</strong>
+      <% @team.team_players.each do |player| %>
+        <br><%= player.user.email %>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @team.status %>
-</p>
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+    <p>
+      <strong>Status:</strong>
+      <%= @team.status %>
+    </p>
+    <div class="pull-right">
+      <%= link_to 'Edit', edit_team_path(@team) %> |
+      <%= link_to 'Back', teams_path %>
+    </div>
+  </div>
+</div>

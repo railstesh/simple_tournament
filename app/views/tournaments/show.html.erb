@@ -1,9 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default devise-bs main-block">
+  <div class="panel-heading text-center">
+    <h4>Tournament</h4>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @tournament.name %>
+    </p>
+    <div class="pull-right">
+      <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+      <%= link_to 'Back', tournaments_path %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tournament.name %>
-</p>
-
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
-<%= link_to 'Back', tournaments_path %>

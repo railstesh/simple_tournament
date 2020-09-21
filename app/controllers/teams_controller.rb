@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    #@teams = Team.all
   end
 
   # GET /teams/1
@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @team = Team.new
+    #@team = Team.new
     build_team_players
   end
 
@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-
+    byebug
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
@@ -72,7 +72,7 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :tournament_id, :status, team_players_attributes: [:id, :user_id])
+      params.require(:team).permit(:name, :tournament_id, :status, team_players_attributes: [:id, :team_id, :user_id])
 
     end
 
