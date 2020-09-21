@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     elsif user.has_role? :user
       can :read, Tournament
-      can :manage, Team
+      can %i[index new create show edit update destroy search], Team
       can :update, User, id: user.id
     end
     # Define abilities for the passed in user here. For example:
