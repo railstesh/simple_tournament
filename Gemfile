@@ -49,6 +49,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # rspec-rails is a testing framework for rails.
   gem 'rspec-rails'
+  gem "factory_bot_rails"
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -73,6 +74,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
+   gem 'shoulda-callback-matchers'
   gem 'faker'
   gem 'database_cleaner'
 end
