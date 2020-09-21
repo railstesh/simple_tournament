@@ -6,10 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Role.first_or_create(name: :user)
-Role.first_or_create(name: :admin)
+Role.create!([
+  { name: :user},
+  { name: :admin}
+])
+p "Created #{Role.count} Roles"
 
-User.first_or_create(email: 'admin@yopmail.com', password: '12345678') do |user|
-  user.add_role(:admin) unless user.has_role?(:admin)
-end
+User.create!([
+  { email: 'admin@yopmail.com', password: '12345678' },
+  { email: 'user1@yopmail.com', password: '12345678' },
+  { email: 'user2@yopmail.com', password: '12345678' },
+  { email: 'user3@yopmail.com', password: '12345678' },
+  { email: 'user4@yopmail.com', password: '12345678' },
+  { email: 'user5@yopmail.com', password: '12345678' },
+])
+p "Created #{User.count} Users"
+User.find_by_email('admin@yopmail.com').add_role(:admin)
+
+Tournament.create!([
+  { name: "tournament1" },
+  { name: "tournament2" },
+  { name: "tournament3" },
+])
+p "Created #{Tournament.count} Tournaments"
 

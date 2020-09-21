@@ -1,0 +1,28 @@
+<%= form_with(model: team, local: true) do |f| %>
+  <% if team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :name, autofocus: true, class: 'form-control',placeholder: 'Enter Name' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.select(:tournament_id, Tournament.pluck([:name, :id]), {}, {class: "form-control"}) %>
+  </div>
+
+  <%= f.fields_for :team_players do |player_form| %>
+    <div class="form-group">
+      <%= player_form.select(:user_id, User.pluck([:email, :id]), {}, {class: "form-control"}) %>
+    </div>
+  <% end %>
+  <%= f.submit 'Create', class: 'btn btn-primary' %>
+<%end%>

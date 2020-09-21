@@ -1,0 +1,18 @@
+<h1>Editing Team</h1>
+
+<%= render 'form', team: @team %>
+
+<%= link_to 'Show', @team %> |
+<%= link_to 'Back', teams_path %>
+
+
+<div class="panel panel-default devise-bs main-block">
+  <div class="panel-heading text-center">
+    <h4>Editing Team</h4>
+  </div>
+  <div class="panel-body">
+    <%= render 'form', team: @team %>
+    <%= link_to 'Show', @team %> |
+    <%= link_to 'Back', teams_path %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<%= form_with(model: tournament, local: true) do |f| %>
+  <% if tournament.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
+
+      <ul>
+      <% tournament.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :name, autofocus: true, class: 'form-control',placeholder: 'Enter Name' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.select(:status, Tournament.statuses.map {|k, v| [k.humanize.capitalize, k]}, {}, {class: "form-control"}) %>
+  </div>
+
+  <%= f.submit 'Create', class: 'btn btn-primary' %>
+<%end%>

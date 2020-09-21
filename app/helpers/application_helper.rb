@@ -8,11 +8,11 @@ module ApplicationHelper
     { success: "ok-circle", error: "remove-circle", alert: "warning-sign", notice: "exclamation-sign" }[flash_type.to_sym] || "question-sign"
   end
 
-  def bootstrap_messages msg_type,message 
-    concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do 
+  def bootstrap_messages msg_type,message
+    concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do
             concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
             concat content_tag(:i, nil, class: "glyphicon glyphicon-#{bootstrap_icon_for(msg_type)}")
-            concat " " << message 
+            concat " " << message
           end)
   end
 
@@ -30,5 +30,9 @@ module ApplicationHelper
     end
     nil
   end
-  
+
+  def active_menu(name)
+    return "active" if controller_name == name
+    "inactive"
+  end
 end
