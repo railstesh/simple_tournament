@@ -3,5 +3,9 @@ FactoryBot.define do
     trait :user do
       name { 'user' }
     end
+
+    trait :admin do
+      name { 'admin' }
+    end
   end
 end

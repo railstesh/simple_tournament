@@ -3,8 +3,13 @@ FactoryBot.define do
     sequence(:email) { |n| "test#{n}@test.com" }
     password { 'password-123' }
 
-    after(:build) do |_role, _evaluator|
+    transient do
+      roles { 'user' }
+    end
+
+    after(:build) do |_user, _evaluator|
       create(:role, :user)
+      create(:role, :admin)
     end
   end
 end
