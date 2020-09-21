@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
+gem 'cancancan'
+gem 'rolify'
 
 # Add bootstrap into Rails with the asset pipeline.
 gem 'bootstrap-sass'

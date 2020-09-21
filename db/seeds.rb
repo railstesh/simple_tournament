@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Role.first_or_create(name: :user)
+Role.first_or_create(name: :admin)
+
+User.first_or_create(email: 'admin@yopmail.com', password: '12345678') do |user|
+  user.add_role(:admin) unless user.has_role?(:admin)
+end
+
