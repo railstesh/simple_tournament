@@ -32,16 +32,30 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
+
+# Add bootstrap into Rails with the asset pipeline.
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  # rspec-rails is a testing framework for rails.
+  gem 'rspec-rails'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
+  # Preview email in the default browser instead of sending it.
+  gem 'letter_opener'
+
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -53,3 +67,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'faker'
+  gem 'database_cleaner'
+end
