@@ -77,4 +77,5 @@ group :test do
    gem 'shoulda-callback-matchers'
   gem 'faker'
   gem 'database_cleaner'
+  gem 'cucumber-rails'
 end

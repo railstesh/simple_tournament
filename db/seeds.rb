@@ -24,9 +24,9 @@ p "Created #{User.count} Users"
 User.find_by_email('admin@yopmail.com').add_role(:admin)
 
 Tournament.create!([
-  { name: "tournament1" },
-  { name: "tournament2" },
-  { name: "tournament3" },
+  { name: "tournament1", status: "upcoming" },
+  { name: "tournament2", status: "upcoming" },
+  { name: "tournament3", status: "finished" },
 ])
 p "Created #{Tournament.count} Tournaments"
 
