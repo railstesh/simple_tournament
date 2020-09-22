@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     get :search, on: :collection
 
     member do
-      get :approve
-      get :eject
+      patch :approve
+      patch :reject
     end
   end
 
