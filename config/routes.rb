@@ -1,20 +1,17 @@
 Rails.application.routes.draw do
   resources :teams do
+    get :search, on: :collection
+
     member do
-      patch :approve
-      patch :reject
-    end
-    collection do
-      get :search
+      get :approve
+      get :eject
     end
   end
-
 
   resources :tournaments do
-    collection do
-      get :search
-    end
+    get :search, on: :collection
   end
+
   devise_for :users
   root to: 'home#index'
   get 'home/index'
